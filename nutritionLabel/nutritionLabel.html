@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    @font-face {
+      font-family: 'Helvetica Black Original';
+      src: url('./helveticablackoriginal_bold.otf');
+    }
     html {
       box-sizing: border-box;
       font-size: 4.875vw;
@@ -15,21 +19,22 @@
     }
 
     article {
-      border: 2px solid black;
+      border: 4px solid black;
       width: 100vw;
-      max-width: 700px;
+      max-width: 680px;
+      cursor: default;
       font-family: 'Helvetica Black', Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 0.333rem;
+      padding: 0.25rem;
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: 730px) {
       html {
-        font-size: 36px;
+        font-size: 32px;
       }
 
       article {
-        margin: 0.1rem;
+        margin: 0 auto;
       }
     }
 
@@ -43,16 +48,22 @@
       line-height: 0;
     }
 
-    p:first-child {
-      font-family: 'Franklin Gothic Heavy', Arial, sans-serif;
-      font-size: 2.66rem;
+    section {
+      border-bottom: 28px solid black;
+    }
+
+    div > p:first-child {
+      font-family: 'Helvetica Black Original', Arial, sans-serif;
+      font-size: 2.5rem;
+      /* font-weight: 900; */
       line-height: 1.8rem;
-      transform: scale(1, 0.95);
-      /* text-align: center; */
+      transform: scale(1.02, 1);
+      text-align: center;
       /* font-stretch: expanded; */
       margin: 0;
+      margin-top: 0.1rem;
       margin-bottom: 5px;
-      /* width: 100%; */
+      width: 100%;
       max-height: min-content;
     }
 
@@ -87,8 +98,26 @@
       font-weight: 750;
     }
 
-    article div:not(:first-child) {
+    article div > div {
       margin-left: 1rem;
+      border-top: 1px solid black;
+    }
+
+    dt, dd {
+      display: inline flow-root;
+      /* vertical-align: center; */
+    }
+
+    dl div {
+      float: right;
+    }
+
+    dt {
+      font-weight: 800;
+    }
+
+    dl {
+      border-top: 1px solid black;
     }
 
     ul {
@@ -122,28 +151,39 @@
 </head>
 <body>
   <article id="nutrition-label">
-    <div>
-      <p>Nutrition Facts</p>
-    </div>
-    <p>Serving Size 2/3 cup (55g)</p>
-    <p>Servings Per Container About 8</p>
-    <hr class="large">
+    <section>
+      <div>
+        <p>Nutrition Facts</p>
+      </div>
+      <p>Serving Size 2/3 cup (55g)</p>
+      <p>Servings Per Container About 8</p>
+    </section>
+    <!-- <hr class="large"> -->
     <span class="small">Amount Per Serving</span>
     <hr>
     <span><strong>Calories</strong> 230</span>
     <span>Calories from Fat 40</span>
     <hr class="medium">
     <span></span><span class="small">% Daily Value*</span>
-    <hr>
-    <span><strong>Total Fat</strong> 8g</span>
+    <!-- <hr> -->
+    <!-- <span><strong>Total Fat</strong> 8g</span>
     <span><strong>12</strong>%</span>
+    <hr> -->
     <div>
-      <hr>
-      <span>Saturated Fat 1g</span>
-      <span><strong>5</strong>%</span>
-      <hr>
-      <span><em>Trans</em> Fat 0g</span>
-      <hr>
+      <dl>
+        <dt>Total Fat</dt>
+        <dd>8g</dd>
+        <div>
+          <dt>12</dt><dd>%</dd>
+        </div>
+      </dl>
+      <div>
+        <span>Saturated Fat 1g</span>
+        <span><strong>5</strong>%</span>
+        <hr>
+        <span><em>Trans</em> Fat 0g</span>
+        <hr>
+      </div>
     </div>
     <span><strong>Cholesterol</strong> 0mg</span>
     <span><strong>0</strong>%</span>
