@@ -1,17 +1,9 @@
-<!-- To do:
-- Remove black bar from bottom section
-- Fix line spacing? 
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* @font-face {
-      font-family: 'Helvetica Black Original';
-      src: url('./helveticablackoriginal_bold.otf');
-    } */
     html {
       box-sizing: border-box;
       font-size: 4.5vw;
@@ -22,14 +14,20 @@
       margin: 0;
     }
 
+    body {
+      background-color: black;
+    }
+
     article {
       border: 4px solid black;
       width: 100vw;
-      max-width: 684px;
+      max-width: 680px;
       cursor: default;
       font-family: Helvetica, Arial, sans-serif;
-      margin: 0;
+      margin: 0 auto;
       padding: 0.4rem;
+      z-index: 1;
+      background-color: white;
     }
 
     @media (min-width: 730px) {
@@ -42,72 +40,44 @@
       }
     }
 
+    section > ol h1 {
+      font-family: 'Helvetica Black', Arial, sans-serif;
+      font-size: 2.45rem;
+      font-weight: 900;
+      line-height: 2rem;
+      margin-bottom: 0.17rem;
+      margin-top: -0.2rem;
+      margin-right: -0.15rem;
+      margin-left: -0.15rem;
+    }
+
     p {
       margin: 0;
       display: block;
     }
 
-    strong {
-      font-family: 'Helvetica Black', Arial, sans-serif;
-      font-weight: 800;
-      /* font-size: 0.95rem; */
-      line-height: 0;
-    }
-
-    section {
+    section:not(:last-child) {
       border-bottom: 28px solid black;
     }
-
-    /* section > p:first-child {
-      display: block;
-      font-family: 'Helvetica Black', Arial, sans-serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      line-height: 1.8rem;
-      transform: scale(1.05, 1);
-      text-align: center;
-      font-stretch: 150%;
-      margin: 0;
-      margin-top: 0.1rem;
-      margin-bottom: 5px;
-      width: 100%;
-      max-height: min-content;
-    } */
 
     hr {
       margin: 0;
       background-color: black;
-      height: 1px;
+      height: 14px;
       border: 0;
       display: block;
       width: 100%;
     }
 
-    hr.medium {
-      height: 14px;
-    }
-
-    hr.large {
-      height: 28px;
-    }
-
     span {
       display: inline-block;
       margin: 0;
+      font-size: 0.75rem;
+      font-weight: 800;
     }
 
     span + span {
       float: right;
-    }
-
-    /* li span + span {
-      float: right;
-    } */
-
-    span.small {
-      font-size: 0.75rem;
-      font-weight: 800;
-      /* font-family: 'Helvetica Black', Arial, sans-serif; */
     }
 
     section > ul ul > li {
@@ -120,7 +90,7 @@
 
     dt, dd {
       display: inline flow-root;
-      /* vertical-align: center; */
+      vertical-align: middle;
     }
 
     dl div {
@@ -131,27 +101,14 @@
       font-weight: 800;
     }
 
-    dl {
-      border-top: 1px solid black;
-    }
-
     section ul, ol {
       list-style-type: none;
-      padding: 0 0 4px 0;
+      padding: 0;
     }
 
     section ul > li {
       padding-bottom: 4px;
       border-bottom: 1px solid black;
-    }
-
-    section > ol h1 {
-      font-family: 'Helvetica Black', Arial, sans-serif;
-      font-size: 2.45rem;
-      font-weight: 900;
-      line-height: 2rem;
-      margin-bottom: 0.17rem;
-      margin-top: -0.2rem;
     }
 
     aside > ul {
@@ -184,6 +141,10 @@
     thead {
       border-bottom: 1px solid black;
     }
+
+    .indented {
+      text-indent: 1rem;
+    }
   </style>
   <title>Nutrition Facts Label</title>
 </head>
@@ -198,15 +159,23 @@
     </section>
     <section>
       <ul>
-        <li><span class="small">Amount Per Serving</span></li>
-        <div>
-          <span><strong>Calories</strong> 230</span>
-          <span>Calories from Fat 40</span>
-        </div>
+        <li>
+          <span>Amount Per Serving</span>
+        </li>
+        <li>
+          <dl>
+            <dt>Calories</dt>
+            <dd>230</dd>
+            <div>
+              <dd>Calories from Fat 40</dd>
+            </div>
+          </dl>
+        </li>
       </ul>
-      <hr class="medium">
+      <hr>
       <ul>
-        <li><span></span><span class="small">% Daily Value*</span></li>
+        <li>
+          <span></span><span>% Daily Value*</span></li>
           <div>
             <dl>
               <dt>Total Fat</dt>
@@ -217,19 +186,37 @@
             </dl>
               <ul>
                 <li>
-                  <span>Saturated Fat 1g</span>
-                  <span><strong>5</strong>%</span>
+                  <dl>
+                    <dd>Saturated Fat 1g</dd>
+                    <div>
+                      <dt>5</dt><dd>%</dd>
+                    </div>
+                  </dl>
                 </li>
-                <li><span><em>Trans</em> Fat 0g</span></li>
+                <li>
+                  <dl>
+                    <dd><em>Trans</em> Fat 0g</dd>
+                  </dl>
+                </li>
               </ul>
           </div>
         <li>
-          <span><strong>Cholesterol</strong> 0mg</span>
-          <span><strong>0</strong>%</span>
+          <dl>
+            <dt>Cholesterol</dt>
+            <dd>0mg</dd>
+            <div>
+              <dt>0</dt><dd>%</dd>
+            </div>
+          </dl>
         </li>
         <li>
-          <span><strong>Sodium</strong> 160mg</span>
-          <span><strong>7</strong>%</span>
+          <dl>
+            <dt>Sodium</dt>
+            <dd>160mg</dd>
+            <div>
+              <dt>7</dt><dd>%</dd>
+            </div>
+          </dl>
         </li>
         <div>
           <dl>
@@ -241,29 +228,59 @@
           </dl>
           <ul>
             <li>
-              <span>Dietary Fiber 4g</span>
-              <span><strong>16</strong>%</span>
+              <dl>
+                <dd>Dietary Fiber 4g</dd>
+              </dl>
             </li>
-            <li><span>Sugars 1g</span></li>
+            <li>
+              <dl>
+                <dd>Sugars 1g</dd>
+              </dl>
+            </li>
           </ul>
         </div>
-        <div><span><strong>Protein</strong> 3g</span></div>
+        <li>
+          <dl>
+            <dt>Protein</dt>
+            <dd>3g</dd>
+          </dl>
+        </li>
       </ul>
     </section>
     <section>
       <ul>
-        <span>Vitamin A</span>
-        <span>10%</span>
-        <hr>
-        <span>Vitamin C</span>
-        <span>8%</span>
-        <hr>
-        <span>Calcium</span>
-        <span>20%</span>
-        <hr>
-        <span>Iron</span>
-        <span>45%</span>
-        <hr>
+        <li>
+          <dl>
+            <dd>Vitamin A</dd>
+            <div>
+              <dd>10%</dd>
+            </div>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dd>Vitamin C</dd>
+            <div>
+              <dd>8%</dd>
+            </div>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dd>Calcium</dd>
+            <div>
+              <dd>20%</dd>
+            </div>
+          </dl>
+        </li>
+        <li>
+          <dl>
+            <dd>Iron</dd>
+            <div>
+              <dd>45%</dd>
+            </div>
+          </dl>
+        </li>
       </ul>
       <aside>
         <ul>
@@ -287,7 +304,7 @@
             <td>80g</td>
           </tr>
           <tr>
-            <th scope="row">Sat Fat</th>
+            <th scope="row" class="indented">Sat Fat</th>
             <td>Less than</td>
             <td>20g</td>
             <td>25g</td>
@@ -311,7 +328,7 @@
             <td>375g</td>
           </tr>
           <tr>
-            <th scope="row">Dietary Fiber</th>
+            <th scope="row" class="indented">Dietary Fiber</th>
             <td></td>
             <td>25g</td>
             <td>30g</td>
